@@ -8,7 +8,7 @@ public class RoadManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Enter")
         {
-            Instantiate(prefabRoad[Random.Range(0,3)], new Vector3(0, 0, transform.position.z + 10f), Quaternion.identity);
+            Instantiate(prefabRoad[Random.Range(0,8)], new Vector3(0, 0, transform.position.z + 10f), Quaternion.identity);
         }
     }
 }

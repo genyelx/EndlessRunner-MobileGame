@@ -2,18 +2,32 @@ using UnityEngine;
 
 public class Collisions : MonoBehaviour
 {
-    [Header("AudioClips")]
-    public AudioClip[] audioclips;
-    public AudioSource audioSource;
+    [SerializeField] Player playerScript;
+    private Animator anim;
+    public bool coliderObstacle;
+    public bool coliderFishBone;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        coliderObstacle = false;
+        coliderFishBone = false;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "FishBone")
         {
+            coliderFishBone = true;
             Destroy(collision.gameObject);
-            audioSource.clip = audioclips[0];
-            audioSource.Play();
-            Player.points++;
+            playerScript.coins++;
+        }
+
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            coliderObstacle = true;
+            playerScript.speed = 0;
+            anim.SetBool("pDie", coliderObstacle);
         }
     }
 }

@@ -59,10 +59,6 @@ public class PlayerControls : MonoBehaviour
                 {
                     player.Jump();
                 }
-                else
-                {
-                    
-                }
             }
 
         }

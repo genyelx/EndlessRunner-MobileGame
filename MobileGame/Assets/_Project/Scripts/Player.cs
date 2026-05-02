@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [Header("Player Settings")]
     [SerializeField] private GameObject playerMesh;
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private float stepSpeed;
     [SerializeField] private float currentLane = 0;
     [SerializeField] private float laneLimit = 1;
@@ -14,7 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float sensorRadius;
     [SerializeField] private float jumpForce;
 
-    public static int points = 0;
+    public int coins = 0;
+    public int points = 0;
+    public bool completeMission = false;
 
     private Vector3 currentPosition;
 
@@ -24,7 +27,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = playerMesh.GetComponent<Rigidbody>();
-        
         anim = playerMesh.GetComponent<Animator>();
         currentPosition = transform.position;
     }
@@ -35,6 +37,17 @@ public class Player : MonoBehaviour
         {
             Move();
             anim.SetBool("pInGame", GameManager.inGame);
+
+            if (points == 10000)
+            {
+                completeMission = true;
+                anim.SetBool("pComplete", completeMission);
+                speed = 0;
+            }
+            else
+            {
+                points += 1;
+            }
         }
     }
 
