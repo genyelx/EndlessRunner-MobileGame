@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -13,9 +15,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas canvasHudGame;
     [SerializeField] private Text textCoin;
     [SerializeField] private Text textPoints;
-
-    [Header("Canvas Died")]
-    [SerializeField] private Canvas canvasDiedGame;
 
     [Header("Canvas Missions")]
     [SerializeField] private Canvas canvasMissions;
@@ -30,6 +29,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Player playerScript;
     [SerializeField] Collisions collisions;
 
+    private int delayStartGame = 3;
+
     void Start()
     {
         canvasDelay.enabled = false;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+
         if (!GameManager.inGame)
         {
             textDelay.text = GameManager.delayStartGame.ToString();
@@ -62,15 +64,11 @@ public class UIManager : MonoBehaviour
             canvasAnimMissions.SetBool("pInGame", GameManager.inGame);
         }
 
-        if(!collisions.coliderObstacle)
+        if(collisions.coliderObstacle)
         {
-            canvasDiedGame.enabled = false;
+            StartCoroutine(TimeToDiedScene());
         }
-        else
-        {
-            canvasDiedGame.enabled = true;
-        } 
-            
+
             textCoin.text = playerScript.coins.ToString();
             textPoints.text = playerScript.points.ToString();
 
@@ -78,6 +76,19 @@ public class UIManager : MonoBehaviour
         {
             canvasCompleteMission.enabled = true;
         }
+
+    }
+
+    IEnumerator TimeToDiedScene()
+    {
+        while (delayStartGame > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            delayStartGame--;
+        }
+
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("DiedScene");
     }
 
     IEnumerator BlinkCouroutine()

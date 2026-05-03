@@ -33,7 +33,16 @@ public class AudioManager : MonoBehaviour
 
         if(playerScript.completeMission)
         {
+            playerScript.completeMission = false;
             audioSource.PlayOneShot(clips[5]);
+            audioSource.volume = 0.5f;
+            audioSource.Play();
+            audioSource.loop = false;
+        }
+
+        if(playerScript.OnGround() == false)
+        {
+            audioSource.PlayOneShot(clips[6]);
             audioSource.Play();
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Collisions : MonoBehaviour
 {
     [SerializeField] Player playerScript;
-    private Animator anim;
+    public Animator anim;
     public bool coliderObstacle;
     public bool coliderFishBone;
 

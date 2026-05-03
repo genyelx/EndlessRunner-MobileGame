@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private GameObject playerMesh;
     [SerializeField] public float speed;
+    [SerializeField] public float increseSpeed;
     [SerializeField] private float stepSpeed;
     [SerializeField] private float currentLane = 0;
     [SerializeField] private float laneLimit = 1;
@@ -15,13 +16,16 @@ public class Player : MonoBehaviour
     [SerializeField] private float sensorRadius;
     [SerializeField] private float jumpForce;
 
+    [Header("ReferenceScript")]
+    [SerializeField] Collisions collisionsScript;
+
     public int coins = 0;
     public int points = 0;
     public bool completeMission = false;
 
     private Vector3 currentPosition;
 
-    private Animator anim;
+    public Animator anim;
     private Rigidbody rb;
 
     private void Start()
@@ -41,6 +45,7 @@ public class Player : MonoBehaviour
             if (points == 10000)
             {
                 completeMission = true;
+                
                 anim.SetBool("pComplete", completeMission);
                 speed = 0;
             }
@@ -48,10 +53,13 @@ public class Player : MonoBehaviour
             {
                 points += 1;
             }
+
+            speed += increseSpeed * Time.deltaTime;
+            stepSpeed += increseSpeed * Time.deltaTime;
         }
     }
 
-    bool OnGround()
+    public bool OnGround()
     {
         return Physics.CheckSphere(sensorGround.position, sensorRadius, 1 << LayerMask.NameToLayer("Ground"));
     }
@@ -66,8 +74,6 @@ public class Player : MonoBehaviour
 
         // ATUALIZA A POSICAO
         transform.position = Vector3.MoveTowards(transform.position, currentPosition, stepSpeed * Time.deltaTime);
-
-        
     }
 
     public void ChangeLane(int direction)

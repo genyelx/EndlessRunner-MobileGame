@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         Swipe();
+
     }
 
     private void Swipe()

@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Test/TestGame.unity
     guid: 9e7c3b586a5501a46b623f7793526459
+  - enabled: 1
+    path: Assets/_Project/Scenes/Main/DiedScene.unity
+    guid: 7db18edb4c012c64d80316221919474a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
