@@ -39,11 +39,5 @@ public class AudioManager : MonoBehaviour
             audioSource.Play();
             audioSource.loop = false;
         }
-
-        if(playerScript.OnGround() == false)
-        {
-            audioSource.PlayOneShot(clips[6]);
-            audioSource.Play();
-        }
     }
 }

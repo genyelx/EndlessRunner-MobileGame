@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39a66d0704a38ea43b46dd69336f64e8, type: 2}
+  - {fileID: 2100000, guid: 7bc55fb19381ea4449352a81a7aa77fe, type: 2}
   - {fileID: 2100000, guid: 39a66d0704a38ea43b46dd69336f64e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -855,7 +855,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 39a66d0704a38ea43b46dd69336f64e8, type: 2}
+  - {fileID: 2100000, guid: 7bc55fb19381ea4449352a81a7aa77fe, type: 2}
   - {fileID: 2100000, guid: 39a66d0704a38ea43b46dd69336f64e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1037,7 +1037,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a77668d10f935444b3535f4cd721345, type: 2}
+  - {fileID: 2100000, guid: a5eb3e9b9384bb04599e30a5e03ea5e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1432,6 +1432,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: a8c476cf0b8398b4e919eabd66d621af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: daeffea2d4925284f9f5be1f94d50172, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1530,6 +1534,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 24a05966196c7fc4380001ad323f651e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fab784cf5dd031e4da6816d3c05b9805, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1628,6 +1636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: a8c476cf0b8398b4e919eabd66d621af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: daeffea2d4925284f9f5be1f94d50172, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
